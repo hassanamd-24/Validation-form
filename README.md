@@ -2,7 +2,7 @@
 
 A clean, dark-themed signup interface featuring robust frontend validation. Built from scratch to demonstrate secure and intuitive client-side data handling.
 
-🔗 **[Live Demo Link](https://hassanamd-24.github.io/Validation-form/)**
+🔗 **[Live Demo Link](https://hassanamd-24.github.io/validation-form/)**
 
 ## ✨ Features
 * **Real-time Validation:** Dynamic feedback on name input, email formatting, and password strength requirements.
