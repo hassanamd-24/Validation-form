@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+<body>
+    <form id="signup-form">
+        <h1>Signup</h1>
+        <div class="input-group">
+            <label for="username">Full Name</label>
+            <input type="text" id="username" placeholder="Enter your full name">
+
+            <span class="error-message" id="name-error"></span>
+        </div>
+        <div class="email-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="xyz@gmail.com">
+            <span class="error-message" id="email-error"></span>
+        </div>
+        <div class="pass-group">
+            <label for="pass">Password</label>
+            <div class="pass-wrapper">
+                <input type="password" id="pass" placeholder="atleast 8 characters">
+                <i class="fa-regular fa-eye-slash" id="toggle-pass"></i>
+            </div>
+            <span class="error-message" id="pass-error"></span>
+        </div>
+        <button type="submit" id="submit-btn">Create Account</button>
+        <p id="acc">Already have an account? <a id="login" href="">Login</a></p>
+    </form>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,230 @@
+/*
+   1. GLOBAL RESET & DESIGN VARIABLES
+ */
+:root {
+  /* Color System */
+  --body-bg: #08101d;
+  --form-bg: #072230;
+  --primary-blue: #399be1;
+  --primary-hover: #2b87cb;
+  --text-white: #ffffff;
+  
+  /* Validation Feedback Colors */
+  --error-color: #ff4d4d;
+  --error-bg: #fff5f5;
+  --success-color: #10b981;
+  --success-bg: #f0fdf4;
+
+  /* Global Animations */
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--body-bg);
+  color: var(--text-white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  overflow-x: hidden; /* Prevents messy mobile horizontal scrollbars */
+}
+
+/* 
+   2. FORM CONTAINER WITH EFFECTS
+ */
+#signup-form {
+  background-color: var(--form-bg);
+  width: 100%;
+  max-width: 420px; /* Perfectly sized constraint for desktop layouts */
+  padding: 2.5rem 2rem;
+  border-radius: 16px;
+  text-align: center;
+  
+  /* Enhanced Glowing Border*/
+  border: 1px solid rgba(135, 206, 250, 0.25);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 
+              0 0 25px rgba(57, 155, 225, 0.15);
+  transition: var(--transition-smooth);
+}
+
+/* Form Heading */
+#signup-form h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.8rem;
+  color: var(--text-white);
+  letter-spacing: -0.5px;
+}
+
+/* 
+   3. STRUCTURAL ALIGNMENT GROUPS
+ */
+.input-group, 
+.email-group, 
+.pass-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 1.2rem;
+  width: 100%;
+}
+
+form label {
+  color: rgba(255, 255, 255, 0.9); /* Enhanced text readability contrast */
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.3px;
+}
+
+/* 
+   4. FIELDS & EYE-ICON WRAPPER COMPONENT
+ */
+.pass-wrapper {
+  width: 100%;
+  position: relative;
+}
+
+form input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  font-size: 0.95rem;
+  border: 2px solid transparent; /* Hidden border reserved for transition effects */
+  border-radius: 8px;
+  background-color: var(--text-white);
+  color: #0d1b2a;
+  outline: none;
+  transition: var(--transition-smooth);
+}
+
+/* Interactive Input Focus State */
+form input:focus {
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 4px rgba(57, 155, 225, 0.25);
+}
+
+/* Password Toggle Eye Styling */
+#toggle-pass {
+  cursor: pointer;
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #4a5568;
+  font-size: 1.1rem;
+  transition: color 0.2s ease;
+  z-index: 10;
+}
+
+#toggle-pass:hover {
+  color: var(--body-bg); /* Darkens dynamically on hover interactions */
+}
+
+/* 
+   5. VALIDATION VISUAL STATES (Controlled via Script)
+ */
+/* Dynamic Error Layouts */
+.input-group.invalid input,
+.email-group.invalid input,
+.pass-group.invalid input {
+  border-color: var(--error-color);
+  background-color: var(--error-bg);
+}
+
+/* Dynamic Success Layouts */
+.input-group.valid input,
+.email-group.valid input,
+.pass-group.valid input {
+  border-color: var(--success-color);
+  background-color: var(--success-bg);
+}
+
+.error-message {
+  color: var(--error-color);
+  font-size: 0.8rem;
+  margin-top: 0.4rem;
+  font-weight: 500;
+  min-height: 1.2rem;
+  text-align: left;
+  width: 100%;
+}
+
+/* 
+   6. SUBMIT BUTTON & ACCOUNT LINKS
+   */
+#submit-btn {
+  width: 100%;
+  padding: 0.9rem;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: var(--primary-blue);
+  color: var(--text-white);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 0.8rem;
+  box-shadow: 0 4px 12px rgba(57, 155, 225, 0.25);
+  transition: var(--transition-smooth);
+}
+
+#submit-btn:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-1px); /* Premium tactile pop-up motion */
+  box-shadow: 0 6px 20px rgba(57, 155, 225, 0.4);
+}
+
+#submit-btn:active {
+  transform: translateY(1px); /* Sinks naturally down under direct clicks */
+}
+
+#acc {
+  margin-top: 1.2rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  width: 100%;
+}
+
+#login {
+  color: var(--primary-blue);
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition-smooth);
+}
+
+#login:hover {
+  color: var(--text-white);
+  text-decoration: underline;
+}
+
+/*
+   7. FLUID RESPONSIVENESS (Mobile-First Polish)
+*/
+@media (max-width: 480px) {
+  body {
+    padding: 1rem;
+  }
+
+  #signup-form {
+    padding: 2rem 1.25rem;
+    border-radius: 12px;
+  }
+
+  #signup-form h1 {
+    font-size: 1.7rem;
+    margin-bottom: 1.4rem;
+  }
+  
+  form input {
+    padding: 0.75rem 0.9rem; /* Slightly optimizes target tap bounds for smaller displays */
+  }
+}
